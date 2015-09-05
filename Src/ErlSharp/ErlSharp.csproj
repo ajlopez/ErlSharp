@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B3A5C01-8095-4333-A397-0BFA89CDFFC5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ErlSharp</RootNamespace>
+    <AssemblyName>ErlSharp.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Communication\InputChannel.cs" />
+    <Compile Include="Communication\OutputChannel.cs" />
+    <Compile Include="Communication\PropertyType.cs" />
+    <Compile Include="Communication\Types.cs" />
+    <Compile Include="Communication\TypeSerializer.cs" />
+    <Compile Include="Compiler\Lexer.cs" />
+    <Compile Include="Compiler\Parser.cs" />
+    <Compile Include="Compiler\ParserException.cs" />
+    <Compile Include="Compiler\Token.cs" />
+    <Compile Include="Compiler\TokenType.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="Expressions\AddExpression.cs" />
+    <Compile Include="Expressions\BinaryExpression.cs" />
+    <Compile Include="Expressions\CallExpression.cs" />
+    <Compile Include="Expressions\CompositeExpression.cs" />
+    <Compile Include="Expressions\ConstantExpression.cs" />
+    <Compile Include="Expressions\AtomExpression.cs" />
+    <Compile Include="Expressions\ReceiveExpression.cs" />
+    <Compile Include="Expressions\SendExpression.cs" />
+    <Compile Include="Expressions\EqualExpression.cs" />
+    <Compile Include="Expressions\StrictEqualExpression.cs" />
+    <Compile Include="Expressions\DelayedCallExpression.cs" />
+    <Compile Include="Expressions\FunExpression.cs" />
+    <Compile Include="Expressions\MultiFunExpression.cs" />
+    <Compile Include="Expressions\QualifiedCallExpression.cs" />
+    <Compile Include="Expressions\RemExpression.cs" />
+    <Compile Include="Expressions\DivExpression.cs" />
+    <Compile Include="Expressions\DivideExpression.cs" />
+    <Compile Include="Expressions\ListExpression.cs" />
+    <Compile Include="Expressions\MatchExpression.cs" />
+    <Compile Include="Expressions\IExpression.cs" />
+    <Compile Include="Expressions\MultiplyExpression.cs" />
+    <Compile Include="Expressions\SubtractExpression.cs" />
+    <Compile Include="Expressions\TupleExpression.cs" />
+    <Compile Include="Expressions\VariableExpression.cs" />
+    <Compile Include="Forms\ExportForm.cs" />
+    <Compile Include="Forms\MultiFunctionForm.cs" />
+    <Compile Include="Forms\FunctionForm.cs" />
+    <Compile Include="Forms\IForm.cs" />
+    <Compile Include="Forms\ModuleForm.cs" />
+    <Compile Include="Functions\CompileModuleFunction.cs" />
+    <Compile Include="Functions\SelfFunction.cs" />
+    <Compile Include="Functions\SpawnFunction.cs" />
+    <Compile Include="Language\Atom.cs" />
+    <Compile Include="Language\DelayedCall.cs" />
+    <Compile Include="Language\FuncFunction.cs" />
+    <Compile Include="Language\Map.cs" />
+    <Compile Include="Language\MatchBody.cs" />
+    <Compile Include="Language\MultiFunction.cs" />
+    <Compile Include="Language\EmptyList.cs" />
+    <Compile Include="Language\Function.cs" />
+    <Compile Include="Language\IElement.cs" />
+    <Compile Include="Language\IFunction.cs" />
+    <Compile Include="Language\List.cs" />
+    <Compile Include="Language\Module.cs" />
+    <Compile Include="Language\Tuple.cs" />
+    <Compile Include="Language\Variable.cs" />
+    <Compile Include="Machine.cs" />
+    <Compile Include="Mailbox.cs" />
+    <Compile Include="MatchUtilities.cs" />
+    <Compile Include="Modules\IoModule.cs" />
+    <Compile Include="Modules\ListsModule.cs" />
+    <Compile Include="Process.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\TypeUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Compiler\Compiler.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
