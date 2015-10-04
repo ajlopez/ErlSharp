@@ -5,10 +5,10 @@
     using System.Linq;
     using System.Reflection;
     using System.Text;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ErlSharp.Compiler;
     using ErlSharp.Tests.Classes;
     using ErlSharp.Utilities;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class TypeUtilitiesTests
