@@ -155,6 +155,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ErlSharp.Console\ErlSharp.Console.csproj">
+      <Project>{B49CFE4A-4A38-48F6-9E6B-E71C43D349FB}</Project>
+      <Name>ErlSharp.Console</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ErlSharp\ErlSharp.csproj">
       <Project>{0B3A5C01-8095-4333-A397-0BFA89CDFFC5}</Project>
       <Name>ErlSharp</Name>
