@@ -44,3 +44,6 @@ Work in Progress.
 - [Blocking Collection and the Producer-Consumer Problem](http://blogs.msdn.com/b/csharpfaq/archive/2010/08/12/blocking-collection-and-the-producer-consumer-problem.aspx)
 - [Fast and Best Producer/consumer queue technique BlockingCollection vs concurrent Queue](http://stackoverflow.com/questions/5001003/fast-and-best-producer-consumer-queue-technique-blockingcollection-vs-concurrent)
 
+## Java
+
+- [Java meets Erlang: Rage against the Virtual Machines!](http://zeroturnaround.com/rebellabs/java-meets-erlang-rage-against-the-virtual-machines/)
