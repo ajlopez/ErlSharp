@@ -9,6 +9,7 @@
     using ErlSharp.Functions;
     using ErlSharp.Language;
     using ErlSharp.Modules;
+    using System.Globalization;
 
     public class Machine
     {
@@ -50,6 +51,11 @@
                 return "false";
             if (value.Equals(true))
                 return "true";
+
+            if (value is float)
+                return ((float)value).ToString(CultureInfo.InvariantCulture);
+            if (value is double)
+                return ((double)value).ToString(CultureInfo.InvariantCulture);
 
             return value.ToString();
         }
