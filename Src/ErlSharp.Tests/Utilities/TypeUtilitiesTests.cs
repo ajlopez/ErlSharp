@@ -37,7 +37,8 @@
             Type type = TypeUtilities.GetType("ErlSharp.Console.Program");
 
             Assert.IsNotNull(type);
-            Assert.AreEqual("ErlSharp.Console.Program", type.Name);
+            Assert.IsNotInstanceOfType(type, typeof(ErlSharp.Console.Program));
+            Assert.AreEqual("ErlSharp.Console.Program", type.FullName);
         }
     }
 }
