@@ -41,29 +41,10 @@
 
             if (operators2.Any(op => op[0] == ch))
             {
-                int ich2 = this.NextChar();
+                Token token = this.TryNextOperator(ch);
 
-                if (ich2 >= 0)
-                {
-                    string op2 = ch.ToString() + ((char)ich2).ToString();
-
-                    int ich3 = this.NextChar();
-
-                    if (ich3 >= 0)
-                    {
-                        string op3 = op2 + ((char)ich3).ToString();
-
-                        if (operators3.Contains(op3))
-                            return new Token(op3, TokenType.Operator);
-
-                        this.PushChar(ich3);
-                    }
-
-                    if (operators2.Contains(op2))
-                        return new Token(op2, TokenType.Operator);
-
-                    this.PushChar(ich2);
-                }
+                if (token != null)
+                    return token;
             }
 
             if (separators2.Any(op => op[0] == ch))
@@ -101,6 +82,35 @@
         public void PushToken(Token token)
         {
             this.tokens.Push(token);
+        }
+
+        private Token TryNextOperator(char ch)
+        {
+            int ich2 = this.NextChar();
+
+            if (ich2 >= 0)
+            {
+                string op2 = ch.ToString() + ((char)ich2).ToString();
+
+                int ich3 = this.NextChar();
+
+                if (ich3 >= 0)
+                {
+                    string op3 = op2 + ((char)ich3).ToString();
+
+                    if (operators3.Contains(op3))
+                        return new Token(op3, TokenType.Operator);
+
+                    this.PushChar(ich3);
+                }
+
+                if (operators2.Contains(op2))
+                    return new Token(op2, TokenType.Operator);
+
+                this.PushChar(ich2);
+            }
+
+            return null;
         }
 
         private static bool IsNameChar(char ch)
