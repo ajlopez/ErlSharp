@@ -49,17 +49,10 @@
 
             if (separators2.Any(op => op[0] == ch))
             {
-                int ich2 = this.NextChar();
+                Token token = this.TryNextSeparator(ch);
 
-                if (ich2 >= 0)
-                {
-                    string sep2 = ch.ToString() + ((char)ich2).ToString();
-
-                    if (separators2.Contains(sep2))
-                        return new Token(sep2, TokenType.Separator);
-
-                    this.PushChar(ich2);
-                }
+                if (token != null)
+                    return token;
             }
 
             if (operators.Contains(ch))
@@ -82,6 +75,23 @@
         public void PushToken(Token token)
         {
             this.tokens.Push(token);
+        }
+
+        private Token TryNextSeparator(char ch)
+        {
+            int ich2 = this.NextChar();
+
+            if (ich2 >= 0)
+            {
+                string sep2 = ch.ToString() + ((char)ich2).ToString();
+
+                if (separators2.Contains(sep2))
+                    return new Token(sep2, TokenType.Separator);
+
+                this.PushChar(ich2);
+            }
+
+            return null;
         }
 
         private Token TryNextOperator(char ch)
