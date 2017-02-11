@@ -121,6 +121,19 @@
         }
 
         [TestMethod]
+        public void ReadFloat()
+        {
+            MemoryStream stream = new MemoryStream();
+            OutputChannel output = new OutputChannel(new BinaryWriter(stream));
+            output.Write((float)123.45);
+            stream.Seek(0, SeekOrigin.Begin);
+
+            InputChannel channel = new InputChannel(new BinaryReader(stream));
+
+            Assert.AreEqual((float)123.45, channel.Read());
+        }
+
+        [TestMethod]
         public void ReadString()
         {
             MemoryStream stream = new MemoryStream();
