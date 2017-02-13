@@ -258,11 +258,7 @@
                 expression = new AtomExpression(new Atom(token.Value));
 
                 if (this.TryParseToken(TokenType.Separator, "("))
-                {
-                    var list = this.ParseExpressionList();
-                    this.ParseToken(TokenType.Separator, ")");
-                    expression = new CallExpression(expression, list);
-                }
+                    expression = this.ParseCallExpression(expression);
                 else if (this.TryParseToken(TokenType.Separator, ":"))
                 {
                     var nexpression = new AtomExpression(new Atom(this.ParseAtom()));
@@ -304,6 +300,13 @@
                 this.PushToken(token);
 
             return expression;
+        }
+
+        private IExpression ParseCallExpression(IExpression expression)
+        {
+            var list = this.ParseExpressionList();
+            this.ParseToken(TokenType.Separator, ")");
+            return new CallExpression(expression, list);
         }
 
         private IExpression ParseReceiveExpression()
