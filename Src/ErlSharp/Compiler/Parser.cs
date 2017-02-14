@@ -260,13 +260,7 @@
                 if (this.TryParseToken(TokenType.Separator, "("))
                     expression = this.ParseCallExpression(expression);
                 else if (this.TryParseToken(TokenType.Separator, ":"))
-                {
-                    var nexpression = new AtomExpression(new Atom(this.ParseAtom()));
-                    this.ParseToken(TokenType.Separator, "(");
-                    var list = this.ParseExpressionList();
-                    this.ParseToken(TokenType.Separator, ")");
-                    expression = new QualifiedCallExpression(expression, nexpression, list);
-                }
+                    expression = this.ParseQualifiedCallExpression(expression);
             }
             else if (token.Type == TokenType.Integer)
                 expression = new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
@@ -300,6 +294,15 @@
                 this.PushToken(token);
 
             return expression;
+        }
+
+        private IExpression ParseQualifiedCallExpression(IExpression expression)
+        {
+            var nexpression = new AtomExpression(new Atom(this.ParseAtom()));
+            this.ParseToken(TokenType.Separator, "(");
+            var list = this.ParseExpressionList();
+            this.ParseToken(TokenType.Separator, ")");
+            return new QualifiedCallExpression(expression, nexpression, list);
         }
 
         private IExpression ParseCallExpression(IExpression expression)
