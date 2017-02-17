@@ -239,7 +239,7 @@
                 {
                     var list = this.ParseExpressionList();
                     this.ParseToken(TokenType.Separator, ")");
-                    expression = new CallExpression(expression, list);
+                    return new CallExpression(expression, list);
                 }
             }
             else if (token.Type == TokenType.Atom)
@@ -258,26 +258,27 @@
                 expression = new AtomExpression(new Atom(token.Value));
 
                 if (this.TryParseToken(TokenType.Separator, "("))
-                    expression = this.ParseCallExpression(expression);
+                    return this.ParseCallExpression(expression);
                 else if (this.TryParseToken(TokenType.Separator, ":"))
-                    expression = this.ParseQualifiedCallExpression(expression);
+                    return this.ParseQualifiedCallExpression(expression);
             }
             else if (token.Type == TokenType.Integer)
-                expression = new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
+                return new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
             else if (token.Type == TokenType.Real)
-                expression = new ConstantExpression(double.Parse(token.Value, CultureInfo.InvariantCulture));
+                return new ConstantExpression(double.Parse(token.Value, CultureInfo.InvariantCulture));
             else if (token.Type == TokenType.String)
-                expression = new ConstantExpression(token.Value);
+                return new ConstantExpression(token.Value);
             else if (token.Type == TokenType.Separator && token.Value == "(")
             {
                 expression = this.ParseSimpleExpression();
                 this.ParseToken(TokenType.Separator, ")");
+                return expression;
             }
             else if (token.Type == TokenType.Separator && token.Value == "{")
             {
                 var expressions = this.ParseExpressionList();
                 this.ParseToken(TokenType.Separator, "}");
-                expression = new TupleExpression(expressions);
+                return new TupleExpression(expressions);
             }
             else if (token.Type == TokenType.Separator && token.Value == "[")
             {
@@ -288,7 +289,7 @@
                     tailexpression = this.ParseSimpleExpression();
 
                 this.ParseToken(TokenType.Separator, "]");
-                expression = new ListExpression(expressions, tailexpression);
+                return new ListExpression(expressions, tailexpression);
             }
             else
                 this.PushToken(token);
