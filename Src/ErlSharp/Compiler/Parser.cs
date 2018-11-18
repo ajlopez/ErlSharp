@@ -164,18 +164,22 @@
                 else
                     throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
 
-            if (token != null && token.Type == TokenType.Operator && token.Value == "=")
+            if (token != null && token.Type == TokenType.Operator)
             {
-                expression = new MatchExpression(expression, this.ParseSimpleExpression());
-                return expression;
+                if (token.Value == "=")
+                {
+                    expression = new MatchExpression(expression, this.ParseSimpleExpression());
+                    return expression;
+                }
+
+                if (token.Value == "!")
+                {
+                    expression = new SendExpression(expression, this.ParseSimpleExpression());
+                    return expression;
+                }
             }
-            else if (token != null && token.Type == TokenType.Operator && token.Value == "!")
-            {
-                expression = new SendExpression(expression, this.ParseSimpleExpression());
-                return expression;
-            }
-            else
-                this.PushToken(token);
+
+            this.PushToken(token);
 
             return expression;
         }
