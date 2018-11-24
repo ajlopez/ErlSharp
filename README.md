@@ -31,12 +31,15 @@ Work in Progress.
 - [What's the difference between “green threads” and Erlang's processes?](http://stackoverflow.com/questions/1947180/whats-the-difference-between-green-threads-and-erlangs-processes)
 - [About Erlang/OTP and Multi-core performance in particular](http://www.erlang-factory.com/upload/presentations/105/KennethLundin-ErlangFactory2009London-AboutErlangOTPandMulti-coreperformanceinparticular.pdf)
 - [Communicating sequential processes](http://en.wikipedia.org/wiki/Communicating_sequential_processes)
-- [Communicating Sequential Processes for JavaTM (JCSP)](http://www.cs.kent.ac.uk/projects/ofa/jcsp/)
 - [How, if at all, do Erlang Processes map to Kernel Threads?](http://stackoverflow.com/questions/605183/how-if-at-all-do-erlang-processes-map-to-kernel-threads)
 - [Inside the Erlang VM with focus on SMP](http://www.erlang.se/euc/08/euc_smp.pdf)
 - [Creación y conexión de nodos Erlang remotos](http://aprendiendo-erlang.blogspot.com.ar/2011/06/crear-y-conectarnos-con-nodos-erlang.html)
 - [Erlang String Handling](https://medium.com/functional-erlang/7588daad8f05)
 - [What Sucks About Erlang](http://damienkatz.net/2008/03/what_sucks_abou.html)
+- [Hitchhiker’s Tour of the BEAM](http://www.erlang-factory.com/upload/presentations/708/HitchhikersTouroftheBEAM.pdf)
+
+### JavaScript
+
 - [Tiny Actor Run-Time in JavaScript](https://github.com/organix/tartjs)
 
 ### .NET
@@ -47,3 +50,4 @@ Work in Progress.
 ## Java
 
 - [Java meets Erlang: Rage against the Virtual Machines!](http://zeroturnaround.com/rebellabs/java-meets-erlang-rage-against-the-virtual-machines/)
+- [Communicating Sequential Processes for JavaTM (JCSP)](http://www.cs.kent.ac.uk/projects/ofa/jcsp/)
