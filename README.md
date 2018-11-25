@@ -37,6 +37,8 @@ Work in Progress.
 - [Erlang String Handling](https://medium.com/functional-erlang/7588daad8f05)
 - [What Sucks About Erlang](http://damienkatz.net/2008/03/what_sucks_abou.html)
 - [Hitchhiker’s Tour of the BEAM](http://www.erlang-factory.com/upload/presentations/708/HitchhikersTouroftheBEAM.pdf)
+- [Programming Erlang](http://www.drdobbs.com/architecture-and-design/programming-erlang/201001928?cid=RSSfeed_DDJ_OpenSource)
+- [The Erlang BEAM Virtual Machine Specification](http://www.cs-lab.org/historical_beam_instruction_set.html)
 
 ### JavaScript
 
